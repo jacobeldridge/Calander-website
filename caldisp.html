@@ -1,0 +1,46 @@
+
+<html>
+<head>
+  
+  <link rel="stylesheet" href="\css\style.css">
+  
+<?php
+  session_start();
+  
+?>
+</head>
+<body>
+
+<h1>My Calendar</h1>
+
+<div class="month">      
+  <ul>
+    <li class="prev"><a onclick="changemonthdec()">&#10094;</a></li>
+    <li class="next"><a onclick="changemonthinc()">&#10095;</a></li>
+    <li>
+      <span id = "monthstr"></span><br>
+      <span style="font-size:18px" id = "yearstr"></span>
+    </li>
+  </ul>
+</div>
+
+<ul class="weekdays">
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+  <li>Su</li>
+</ul>
+
+<ul class="days" id = "dayscontain">  
+ 
+</ul>
+
+</body>
+<script src="calscript.js"></script>
+<?php 
+  $_SESSION['date'] = "<script></script>"
+?>
+</html>
