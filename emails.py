@@ -3,7 +3,7 @@ import smtplib, ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-password = "FlashGordonFast22"
+password = "password"
 context = ssl.create_default_context()
 Help = MIMEMultipart('alternative')
 Help['Subject'] = """\
@@ -16,13 +16,13 @@ Help['Subject'] = """\
 
 
 """
-Help['From'] = "couldbeanyone20@gmail.com"
-Help['To'] = "4046554186@pm.sprint.com"
+Help['From'] = "host email"
+Help['To'] = "user email"
 
 logsucc = MIMEMultipart('alternative')
 logsucc['Subject'] = "Log command successful"
-logsucc['From'] = "couldbeanyone20@gmail.com"
-logsucc['To'] = "4046554186@pm.sprint.com"
+logsucc['From'] = "host email"
+logsucc['To'] = "user email"
 # Plain-text version of content
 
 # html version of content
@@ -31,5 +31,5 @@ logsucc['To'] = "4046554186@pm.sprint.com"
 
 def sendher(whichmsg):
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login("couldbeanyone20@gmail.com", password)
+        server.login("host email", password)
         server.send_message(whichmsg)
