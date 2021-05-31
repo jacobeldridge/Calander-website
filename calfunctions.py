@@ -2,7 +2,7 @@ import sqlite3
 from sqlite3 import Error
 import emails
 from datetime import datetime
-con = sqlite3.connect('D:\wamp64\www\thereal.db')
+con = sqlite3.connect('example.db')
 cur = con.cursor()
 
 def display(thedate = datetime.date(datetime.now())):
@@ -17,12 +17,12 @@ def display(thedate = datetime.date(datetime.now())):
 def log(event_name = "no name", date_time = "no date", event_desc = "no desc", event_type = "no type", event_imp = 2):
     cur.execute('INSERT into event(event_name,date_time,event_desc, event_type,event_imp) values(?,?,?,?,?)',(event_name,date_time,event_desc, event_type,event_imp))
     con.commit()
-    print("heysies")
-    f = open("D:\wamp64\www\htmldays\{}.php".format(date_time), 'w')
-    print("peeee")
+
+    f = open("\htmldays\{}.php".format(date_time), 'w')
+
     doc = """\
 <?php
-    $dir = 'sqlite:D:\wamp64\www\thereal.db';
+    $dir = 'example.db';
     $dbh  = new PDO($dir) or die("cannot open the database");
     
     $fullname = basename($_SERVER['PHP_SELF']);
@@ -73,12 +73,12 @@ def log(event_name = "no name", date_time = "no date", event_desc = "no desc", e
 
 \
     """ 
-    print("hekjqhkje")
+
     f.write(doc)
     f.close()
 
-    print("done2")
-log("anything","this is a adate")
+
+
 
 # def changename(id_, event_name = "NULL"):
 #     if event_name == "NULL":
